@@ -1,11 +1,11 @@
 FORMAT: 1A
 HOST: http://oppty.apiblueprint.org/
 
-# Oppty
+# SFA
 
-Oppty is a simple API allowing consumers to view sales opportunities.
+SFA is a simple API allowing consumers to view sales opportunities.
 
-# Opportunity API Root [/]
+# SFA API Root [/]
 
 This resource does not have any attributes. Instead it offers the initial
 API affordances in the form of the links in the JSON body.
@@ -27,7 +27,7 @@ to keep your client decoupled from implementation details.
 
 Resources related to opportunities in the API.
 
-## Opportunities [/opptys/{?page,pageSize}]
+## Opportunities [/opportunities/{?stage}]
 
 A list of Opportunity objects with the following attributes:
 
@@ -36,8 +36,7 @@ A list of Opportunity objects with the following attributes:
 + url
 
 + Parameters
-    + page: 1 (required, number)... Page number
-    + pageSize: 25 (required, number)... Number of items per page
+    + stage: (optional, number)... An Opportunity Stage Id
 
 
 ### View an Opportunity List [GET]
@@ -51,23 +50,74 @@ A list of Opportunity objects with the following attributes:
     + Body
     
             {
-                "page" : {
-                    "number" : 1
-                    ,"size" : 25
-                    ,"totalPages" : 100
-                },
-                "opptys" : [
+                "opportunities" : [
                     {
-                        "id" : "99999"
-                        ,"Name": "Oppty Name 99999"
-                        ,"published_at": "2014-11-11T08:40:51.620Z"
-                        ,"url": "/opptys/99999"
+                        "ID" : "99999"
+                        ,"Name_Description":"Opportunity test data"
+                        ,"TargetClose" :"2016-05-24T07:40:13.9"
+                        ,"ActualClose" :""
+                        ,"ClosedBy" :""
+                        ,"ClosedStatusCode" :""
+                        ,"UnsuccessfulReason" :""
+                        ,"Comments" :""
+                        ,"Flags" : 2
+                        ,"Estimates" : {
+                            "Policies" : 3
+                            ,"Risks" : 7
+                            ,"Contracts" : 4
+                            ,"Premium" : {
+                                "amount" : 3145
+                                ,"currency" : "USD"
+                            }
+                            ,"Revenue" : {
+                                "amount" : 3145
+                                ,"currency" : "USD"
+                            }
+                        }
+                        ,"Stage" : {
+                            "ID" : 101
+                            ,"Name" : "Unqualified"
+                            ,"Order" : 1
+                            ,"Weight" : 0
+                            ,"Flags" : 2
+                            ,"Audit" : {
+                                "InsertedByCode" : "APPLIED"
+                                ,"InseretedDate" : "2015-07-14T18:36:56.717"
+                                ,"UpdatedByCode" : ""
+                                ,"UpdatedDate" : ""
+                            }
+                        }
+                        ,"Owner" : {
+                            "ID" : "65592"
+                            ,"TypeCode": "EM"
+                        }
+                        ,"Agency" : {
+                            "ID" : "65536"
+                        }
+                        ,"Branch" : {
+                            "ID" : "100"
+                        }
+                        ,"Department" : {
+                            "ID" : "100"
+                        }
+                        ,"ProfitCenter" : {
+                            "ID" : "100"
+                        ,"SalesTeam" : {
+                            "ID" : "100"
+                        }
+                        ,"Audit" : {
+                            "InsertedByCode" : "APPLIED"
+                            ,"InseretedDate" : "2015-07-14T18:36:56.717"
+                            ,"UpdatedByCode" : ""
+                            ,"UpdatedDate" : ""
+                        }
                     }
                     ,{
-                        "id" : "99998"
+                        "ID" : "99998"
+                        ,"Created" : "2015-07-14T19:08:19.45"
                         ,"Name": "Oppty Name 99998"
-                        ,"published_at": "2013-11-11T08:40:51.620Z"
-                        ,"url": "/opptys/99998"
+                        ,"Description":"Opportunity test data"
+                        ,"TargetClose" :"2016-03-02T07:40:13.9"
                     }
                 ]
 
